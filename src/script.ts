@@ -32,3 +32,11 @@ const greetings = (fullName: string, greetings = 'hi')=>{
     console.log(greetings + ' ' + fullName)
 }
 greetings('Mir')
+
+
+
+const sum = (...numbers: number[])=>{
+    return numbers.reduce((total, sum)=> total + sum, 0)
+}
+
+console.log(sum(3,4,4,3,2,1,5));
