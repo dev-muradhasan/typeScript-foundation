@@ -28,15 +28,51 @@ const concatName = (firstName: string, lastName?: string) => {
 console.log(concatName('jahid hasan'));
 
 
-const greetings = (fullName: string, greetings = 'hi')=>{
+const greetings = (fullName: string, greetings = 'hi') => {
     console.log(greetings + ' ' + fullName)
 }
 greetings('Mir')
 
 
 
-const sum = (...numbers: number[])=>{
-    return numbers.reduce((total, sum)=> total + sum, 0)
+const sum = (...numbers: number[]) => {
+    return numbers.reduce((total, sum) => total + sum, 0)
+}
+console.log(sum(3, 4, 4, 3, 2, 1, 5));
+
+
+const logUserAction = (...args: [name: string, age: number, isActive: boolean]) => {
+    const [name, age] = args
+    console.log(name + ' ' + age);
+}
+logUserAction('hasan', 23, true)
+
+
+
+// object type , type alias, interface
+
+type Address = {streetName: string, holdingNumber: number}
+type TUser = { name: string, age: number, isActive: boolean, action: () => void, badges: string[], address: Address }
+
+interface IUser  { name: string, age: number, isActive: boolean, action: () => void, badges: string[] }
+
+const user: TUser = {
+    name: 'Mir',
+    age: 33,
+    isActive: true,
+    action: () => console.log('hello'),
+    badges: ['abc', 'efg'],
+    address: {
+        holdingNumber: 544,
+        streetName: '12/45'
+    }
 }
 
-console.log(sum(3,4,4,3,2,1,5));
+const user2: IUser = {
+    name: 'Mir',
+    age: 33,
+    isActive: true,
+    action: () => console.log('hello'),
+    badges: ['abc', 'efg']
+}
+
